@@ -1,4 +1,4 @@
-# Weekly Calendar
+# Weekly Calendar [![Netlify Status](https://api.netlify.com/api/v1/badges/12a8ed35-a975-475e-bcbd-15defb0820ec/deploy-status)](https://app.netlify.com/sites/weekly-calendar-app/deploys)
 
 This project implements a weekly calendar. 
 
@@ -14,6 +14,8 @@ Calendar class expects a list of events. Event data format:
 ```
 
 ## Example
+
+Project is deployed to Netlify. In order to see the application online navigate to https://weekly-calendar-app.netlify.app/
 
 index.js file is provided. In order to run the example, you need a local server.
 
