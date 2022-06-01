@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Calendar</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="index.css">
+  </head>
+
+  <body>
+    <div class="calendar-container" id="calendar-container">
+      <div class="calendar-header" id="calendar-header">
+        <div class="calendar-title" id="calendar-title"></div>
+        <div class="calendar-actions" id="calendar-actions">
+          <button class="calendar-action-button" id="calendar-action-button-prev">
+            &lt;
+          </button>
+          <button class="calendar-action-button" id="calendar-action-button-today">
+            Today
+          </button>
+          <button class="calendar-action-button" id="calendar-action-button-next">
+            &gt;
+          </button>
+        </div>
+      </div>
+      <div class="calendar" id="calendar">
+        <div class="calendar-days" id="calendar-days">
+        </div>
+        <div class="calendar-body" id="calendar-body">
+        </div>
+      </div>
+    </div>
+    <script type="module" src="index.js" async defer></script>
+  </body>
+
+</html>

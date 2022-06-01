@@ -1,0 +1,394 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+/* Main */
+
+:root {
+  --white: #fff;
+  --calendar-background-color: #ffffff;
+  --calendar-border-color: #e5e5e5;
+  --calendar-weekend-color: #e5e5e580;
+  --text-color: #333333;
+  --today-color: #ff0000;
+  --today-text-color: #ffffff;
+  --calendar-max-width: 800px;
+  --font-size: 14px;
+  --font-family: 'Open Sans', sans-serif;
+  --timeline-width: 60px;
+  --calendar-cell-height: 40px;
+  --calendar-cell-width: 106px;
+  --calendar-body-height: 600px;
+}
+
+html {
+  font-size: var(--font-size);
+  font-family: var(--font-family);
+  box-sizing: border-box;
+}
+
+button {
+  cursor: pointer;
+  background-color: var(--white);
+  border: none;
+  padding: .4rem;
+  border-radius: .2rem;
+  box-shadow: 0px 0px 0px 1px var(--calendar-border-color);
+}
+
+button:hover {
+  box-shadow: 0px 0px 0px 2px var(--calendar-border-color);
+}
+
+
+.calendar-container {
+  width: 100%;
+  max-width: var(--calendar-max-width);
+  margin: 1rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.calendar-header {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--calendar-background-color);
+}
+
+.calendar-title-month {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+.calendar-title-year {
+  font-size: 1.5rem;
+  font-weight: 200;
+  margin-left: .4rem;
+  color: var(--text-color);
+}
+
+.calendar {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--calendar-background-color);
+}
+
+.calendar-days {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: var(--calendar-background-color);
+  height: 3rem;
+  border-bottom: 1px solid var(--calendar-border-color);
+}
+
+.calendar-days > .calendar-day {
+  flex: 1;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  width: 10vw;
+}
+
+.calendar-day-number {
+  width: 1.2rem;
+  height: 1.2rem;
+  line-height: 1.2rem;
+  text-align: center;
+}
+
+.calendar-days > .calendar-timeline-column {
+  flex: 1;
+  max-width: var(--timeline-width);
+}
+
+.calendar-day > .calendar-day-number {
+  margin-left: .4rem;
+  padding: .4rem;
+}
+
+.calendar-day-number.calendar-day-number-today {
+  background-color: var(--today-color);
+  border-radius: 50%;
+  color: var(--today-text-color);
+}
+
+.calendar-body{
+  width: 100%;
+  height: 100%;
+  max-height: var(--calendar-body-height);
+  overflow-y: auto;
+  position: relative;
+  background-color: var(--calendar-background-color);
+}
+
+.calendar-body-rows {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.calendar-body-row {
+  width: 100%;
+  height: var(--calendar-cell-height);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+
+.calendar-body-column {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--calendar-border-color);
+  position: relative;
+  box-sizing: border-box;
+  max-width: var(--calendar-cell-width);
+  width: 10vw;
+}
+
+
+.calendar-body-column:nth-child(2) {
+  border-left: none;
+}
+
+.calendar-body-column:last-child {
+  border-right: none;
+  background-color: var(--calendar-weekend-color);
+}
+
+.calendar-body-column:nth-last-child(2) {
+  background-color: var(--calendar-weekend-color);
+}
+
+.calendar-timeline-column{
+  color: var(--text-color);
+  opacity: 0.5;
+  margin-bottom: var(--calendar-cell-height);
+}
+
+.calendar-timeline-last-hour {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: calc(var(--calendar-cell-height) * 1.3);
+  margin-bottom: calc(var(--calendar-cell-height) * -1);
+}
+
+.calendar-all-day-row {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  border-bottom: 4px solid var(--calendar-border-color);
+  height: calc(var(--calendar-cell-height) / 2);
+  margin-bottom: 1rem;
+  color: var(--text-color);
+  background-color: var(--calendar-background-color);
+  z-index: 1;
+  display: flex;
+}
+
+.calendar-all-day-row > * {
+  border-top: none;
+  border-bottom: none;
+}
+
+.calendar-all-day-row > .calendar-body-column:nth-last-child(1), 
+.calendar-all-day-row > .calendar-body-column:nth-last-child(2) {
+  padding-top: var(--calendar-cell-height);
+}
+
+.calendar-all-day-row > .calendar-body-column::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -2px;
+  width: 2px;
+  height: var(--calendar-cell-height);
+  background-color: var(--calendar-border-color);
+}
+
+.calendar-all-day-row > .calendar-timeline-column::after {
+  display: none;
+}
+
+.calendar-body-column.calendar-timeline-column {
+  max-width: var(--timeline-width);
+  border: none;
+}
+
+.calendar-event {
+  flex: 1;
+  font-size: 0.6rem;
+  font-weight: bold;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  align-self: flex-start;
+  border-radius: 2px;
+  height: 100%;
+  opacity: 0.8;
+  position: relative;
+}
+
+.calendar-event:hover{
+  cursor: pointer;
+  opacity: 1;
+  transform: scale(1.1);
+  z-index: 2;
+  transition: all 0.2s ease-in-out;
+}
+
+
+.calendar-body-column > .calendar-event:not(:last-child) {
+  margin-right: 2px;
+}
+
+.calendar-event-tooltip {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: 150px;
+  background-color: var(--calendar-background-color);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 99;
+  box-shadow:  0px 24px 38px 3px rgb(0 0 0 / 14%), 0px 9px 46px 8px rgb(0 0 0 / 12%), 0px 11px 15px -7px rgb(0 0 0 / 20%);
+}
+
+.calendar-event-tooltip-body {
+  width: 100%;
+  height: 100%;
+  padding: 15px;
+  padding-left: 45px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.calendar-event-tooltip-header{
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.calendar-event-tooltip-close {
+  position: absolute;
+  right: 15px;
+}
+
+.calendar-event-tooltip-close:hover {
+  transform: scale(1.1);
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+
+@media (max-width: 768px) {
+  .calendar-day-number{
+    display: none;
+  }
+  .calendar-header {
+    height: 40px;
+  }
+  .calendar-title-month {
+    font-size: 1.2rem;
+  }
+  .calendar-title-year {
+    font-size: 1.2rem;
+  }
+  .calendar-days {
+    height: 2rem;
+  }
+  .calendar-day {
+    width: 10vw;
+  }
+  .calendar-day-number {
+    font-size: 1.2rem;
+  }
+  .calendar-body-column {
+    max-width: var(--calendar-cell-width);
+    width: 10vw;
+  }
+  .calendar-timeline-column {
+    max-width: var(--timeline-width);
+  }
+  .calendar-timeline-last-hour {
+    height: calc(var(--calendar-cell-height) * 1.3);
+    margin-bottom: calc(var(--calendar-cell-height) * -1);
+  }
+  .calendar-all-day-row {
+    height: calc(var(--calendar-cell-height) / 2);
+  }
+}
