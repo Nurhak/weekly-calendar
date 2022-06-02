@@ -3,7 +3,7 @@ import Calendar from './calendar.js';
 const events = [
   { id: 0, eventName: 'Event 0', dateFrom: 1654030827577, dateTo: 1654032026577 },
   { id: 1, eventName: 'Event 1', dateFrom: 1654084000000, dateTo: 1654085435129 },
-  { id: 1, eventName: 'Long event name 1', dateFrom: 1654705888000, dateTo: 1655051488000 },
+  { id: 10, eventName: 'Long event name 1', dateFrom: 1654705888000, dateTo: 1655051488000 },
   { id: 2, eventName: 'Event 2', dateFrom: 1654709488000, dateTo: 1654968688000 },
   { id: 3, eventName: 'Event 3', dateFrom: 1651667488000, dateTo: 1652027488000 },
   { id: 4, eventName: 'Event 4', dateFrom: 1651752000000, dateTo: 1651759200000 },
